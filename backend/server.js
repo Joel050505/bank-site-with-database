@@ -15,7 +15,7 @@ const pool = mysql.createPool({
   password: "root",
   host: "localhost",
   database: "bank",
-  port: 8889,
+  port: 3307,
 });
 
 // Hjälpfunktion för att hantera SQL-frågor

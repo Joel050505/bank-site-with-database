@@ -1,0 +1,24 @@
+services:
+  nextjs:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - express
+    restart: always
+
+  express:
+    build: ./backend
+    ports:
+      - "4000:4000"
+    depends_on:
+      - mysql
+    restart: always
+
+  mysql:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=root # Set a real password instead of a placeholder
+      - MYSQL_DATABASE=bank
+    ports:
+      - "3307:3306"
